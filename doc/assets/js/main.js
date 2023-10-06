@@ -179,7 +179,7 @@ async function getStarCount(userName, repoName) {
 }
 
 async function popGithubData(){
-    let data = await getStarCount("windsting", "");
+    let data = await getStarCount("windsting", "my-kv-store");
     if (!data) return;
     let spanForkCount = document.getElementById("fork-count");
     spanForkCount.textContent = data.forks;
