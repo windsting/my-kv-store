@@ -91,7 +91,6 @@ section {
     margin-right: 0.25em;
 }
 
-svg path {
-    /* stroke: var(--bs-light); */
-    fill: var(--bs-light);
+.github-icon {
+    font-size: 1.25em;
 }

@@ -182,7 +182,9 @@ async function popGithubData(){
     let data = await getStarCount("windsting", "my-kv-store");
     if (!data) return;
     let spanForkCount = document.getElementById("fork-count");
-    spanForkCount.textContent = data.forks;
+    spanForkCount.textContent = data.forks_count;
+    let spanStarCount = document.getElementById("star-count");
+    spanStarCount.textContent = data.stargazers_count;
     console.log(data);
 
 }
