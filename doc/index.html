@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Kv Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="#">MyKvStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link border-end" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border-end" href="#get-set-jump">Get and Set</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border-end" href="#limitation-jump">Limitation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border-end" href="#features-jump">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border-end" href="#about-jump">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-outline-secondary ms-lg-2"> <i class="bi bi-github"></i> GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <section id="hero" class="d-flex align-items-center text-center">
+        <div class="container">
+            <h1 class="fw-semibold display-1">Welcome to MyKvStore</h1>
+            <p class="display-5">Your own FREE online key-value storage API</p>
+            <div>
+                <!-- <a href="#get-set-jump" role="button" class="btn btn-success btn-lg">Try Get and Set</a> -->
+                <a href="#deploy-jump" role="button" class="btn btn-success btn-lg">Deploy Step-by-Step</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="get-set-jump" class="b-example-divider bg-body-secondary"></div>
+
+    <section id="get-set" class="bg-body-secondary">
+        <div class="container">
+            <h2 class="h2">Get and set</h2>
+            <p class="info">
+                <span class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i></span> Please <strong>do
+                    not</strong> include any confidential information in both <code>key</code> and
+                <code>value</code> text.
+            </p>
+            <form>
+                <div class="mb-3">
+                    <!-- <label for="key" class="form-label">key</label> -->
+                    <input type="text" class="form-control" id="key" placeholder="Input your key here"
+                        aria-describedby="keyHelp" value="key1">
+                    <div id="keyHelp" class="form-text">Default length is 128 bytes.</div>
+                </div>
+                <div class="mb-3">
+                    <button id="get" class="btn btn-primary">Get from cloud</button>
+                    <button id="set" class="btn btn-primary">Set to cloud</button>
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="value" class="form-label">Example textarea</label> -->
+                    <textarea class="form-control" id="value" rows="10"
+                        placeholder="Value can be inputted or shown here"></textarea>
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="key" class="form-label">key</label> -->
+                    <input type="text" class="form-control" id="base-url" value="http://0.0.0.0:5000/kv"
+                        aria-describedby="baseUrlHelp">
+                    <div id="baseUrlHelp" class="form-text">To test your deployment, change this url.</div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div id="limitation-jump" class="b-example-divider bg-body-tertiary"></div>
+
+    <section id="limitation" class="bg-body-tertiary">
+        <div class="container">
+            <h2>Limitations</h2>
+            <p class="info">
+                <span class="text-warning"><i class="bi bi-exclamation-circle-fill"></i></span> The default
+                configuration
+                depends on free online resources which contains the following limitations:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <strong>Database</strong> is limited by
+                        <em>V2 <a href="https://freedb.tech/">FreeDB</a> Free Tier</em>
+                    </p>
+                    <ul>
+                        <li>Only one database option: MySQL</li>
+                        <li>50MB of database space</li>
+                        <li>MAX QUERIES PER HOUR 800</li>
+                        <li>MAX UPDATES PER HOUR 800</li>
+                        <li>MAX_CONNECTIONS_PER_HOUR 800</li>
+                        <li>MAX Connections 800</li>
+                        <li>Any other limitations mentioned in their <a href="https://freedb.tech/dashboard/faq.php">FAQ
+                                page</a>.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>
+                        <strong>Web hosting</strong> is limited by <em>Hobby plan of <a
+                                href="https://vercel.com/">Vercel</a></em>
+                    </p>
+                    <p>
+                        Please refer to <a href="https://vercel.com/docs/limits/overview">Limits page</a> on Vercel
+                        official website
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="features-jump" class="b-example-divider bg-body-secondary"></div>
+
+    <section id="features" class="bg-body-secondary">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="row">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card h-100">
+                        <div class="card-header">Easy to access</div>
+                        <div class="card-body">
+                            <p class="card-text">Simply producing and consuming data with the plain HTTP
+                                <code>GET</code> and <code>POST</code>(Violate the RESTful rules, but easy to use).
+                            </p>
+                            <a href="#get-set-jump" class="btn btn-primary bottom-0">Try it</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card  h-100">
+                        <div class="card-header">
+                            Free (<a class="link-secondary"
+                                href="https://en.wikipedia.org/wiki/Open-source_software#:~:text=freedom%20from%20cost%20(or%20%22free%20as%20in%20free%20beer%22)">As
+                                in <strong>free beer</strong></a> )
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">By leveraging the online resources, not necessary to pay, not even need
+                                credit card information.</p>
+                            <a href="#limitation-jump" class="btn btn-primary">With limitation</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card  h-100">
+                        <div class="card-header">Guided deployment</div>
+                        <div class="card-body">
+                            <p class="card-text">With the step-by-step guide, any internet user can deploy it,
+                                techniqual knowledge is not necessary.</p>
+                            <a href="#deploy-jump" class="btn btn-primary">Read the guide</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="deploy-jump" class="b-example-divider bg-body-tertiary"></div>
+
+    <section id="deploy" class="bg-body-tertiary">
+        <div class="container">
+            <h2>Deploy Step by Step</h2>
+
+            <div class="step">
+                <h5 class="card-header">Step 0 - Prerequisite (To register)</h5>
+                <div class="row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="card h-100">
+                            <div class="card-header">GitHub</div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    It's very likely you have already had it.
+                                </p>
+                                <a href="https://github.com" class="btn btn-primary bottom-0">Go GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="card  h-100">
+                            <div class="card-header">
+                                FreeDB
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Credit card information <strong>not</strong> needed.
+                                </p>
+                                <a href="https://freedb.tech" class="btn btn-primary">Go FreeDB</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="card  h-100">
+                            <div class="card-header">Vercel</div>
+                            <div class="card-body">
+                                <p class="card-text">Better to connect your GitHub account.</p>
+                                <a href="https://vercel.com" class="btn btn-primary">Go Vercel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <h5 class="card-header">Step 1 - Fork the code</h5>
+                <p>
+                <ul>
+                    <li>You can deploy it directly from my GitHub repository.</li>
+                    <li>But it's recommanded to have your own.</li>
+                    <ul>
+                        <li>To avoid unnecessary deployment while I change the code.</li>
+                    </ul>
+                </ul>
+                <a href="#" class="btn btn-primary ms-4">
+                    <svg viewBox="0 0 16 16" width="1.25em" height="1.25em" class="octicon octicon-repo-forked"
+                        aria-hidden="true">
+                        <path
+                            d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z">
+                        </path>
+                    </svg>
+                    (<span id="fork-count"></span>) Go Fork Repository</a>
+                </p>
+            </div>
+
+            <div class="step">
+                <h5>Step 2 - Prepare the Database connection string</h5>
+                <p class="info">
+                    <span class="text-success"><i class="bi bi-info-circle bi-3x"></i></span>
+                    Don't worry, the information input here <strong>will not</strong> be stored or sent anywhere.
+                </p>
+                <ol type="I">
+                    <li>
+                        On <a href="http://freedb.tech">FreeDB</a> homepage,
+                        click that <button class="btn btn-outline-primary">Dashboard</button> button
+                    </li>
+                    <li>Login with your account to go dashboard page</li>
+                    <li>
+                        Enter <code>database name</code> and
+                        <code>database user name</code> to create database <span class="text-secondary">
+                            (values below are forged for demonstrate)</span><br>
+                        <img class="rounded my-2" src="assets/images/freedb-info.png" alt="freedb information">
+                    </li>
+                    <li>
+                        <p>Copy & paste the information below</p>
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <input type="text" id="dbhost" class="form-control" placeholder="HOST">
+                            </div>
+                            <div class="col-auto">
+                                <input type="number" id="dbport" class="form-control" step="1" value="3306"
+                                    placeholder="PORT(3306)">
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="dbname" class="form-control" placeholder="DATABASE NAME">
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="dbuser" class="form-control" placeholder="DATABASE USER">
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="dbpassword" class="form-control" placeholder="PASSWORD">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="input-group mb-3">
+                            <input type="text" id="connection-string" class="form-control"
+                                placeholder="Connect string shown here" readonly>
+                            <button class="btn btn-outline-success" type="button" id="generate-copy">Generate &
+                                Copy</button>
+                        </div>
+                    </li>
+                </ol type="i">
+            </div>
+        </div>
+    </section>
+
+    <section id="discus" class="bg-body-secondary">
+        <div class="container bg-body-tertiary rounded-4 py-2">
+            <div id="disqus_thread">
+                <p>Something</p>
+            </div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
+                    by Disqus.</a></noscript>
+        </div>
+    </section>
+
+    <div id="about-jump" class="b-example-divider bg-body-secondary"></div>
+    <section id="about" class="bg-body-secondary">
+        <div class="container">
+            <h2>About</h2>
+            <a href="https://www.buymeacoffee.com/windstings"><img
+                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=windstings&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/disqus.js"></script>
+    <script id="dsq-count-scr" src="//my-kv-store.disqus.com/count.js" async></script>
+</body>
+
+</html>

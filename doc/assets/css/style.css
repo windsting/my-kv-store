@@ -1,0 +1,97 @@
+@import url(./clash-display.css);
+
+/* virables */
+:root {
+    --c-dark: #212529;
+    --c-brand: #4e57d4;
+    --c-brand-light: #656cce;
+    --c-brand-rgb: rgb(78, 87, 212);
+    --c-body: #727272;
+    --font-base: "ClashDisplay", sans_serif;
+    --box-shadow: 0px 10px 7px rgba(0,0,0,0.2);
+    --transition: all 0.5s ease;
+}
+
+/* reset and helpers */
+body {
+    font-family: var(--font-base);
+    line-height: 1.7;
+    /* color: var(--c-body); */
+}
+
+strong {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 2rem 0;
+    /* box-shadow: var(--box-shadow); */
+}
+
+/* nav bar */
+
+.navbar {
+    box-shadow: var(--box-shadow);
+}
+
+#key::placeholder,
+#value::placeholder {
+    opacity: .35;
+}
+
+/* hero */
+#hero, #deploy, #about {
+    min-height: 50vh;
+    /* color: var(--c-dark); */
+    /* background-color: #f0f0f0; */
+}
+
+.b-example-divider {
+    width: 100%;
+    height: 4rem;
+    /* background-color: var(--bs-secondary-bg); */
+    /* background-color: var(--bs-primary); */
+}
+
+.step {
+    background-color: var(--bs-secondary-bg);
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    /* min-height: 50vh; */
+}
+
+.step h5 {
+    margin-bottom: 1rem;
+}
+
+.info {
+    font-size: 1.1em;
+}
+
+.info i.bi {
+    font-size: 1.25em;
+    margin-left: 1em;
+    margin-right: 0.25em;
+}
+
+svg path {
+    /* stroke: var(--bs-light); */
+    fill: var(--bs-light);
+}
