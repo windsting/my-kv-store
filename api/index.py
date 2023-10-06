@@ -74,7 +74,7 @@ def get_list():
                            prev_page_url=prev_page_url,
                            next_page_url=next_page_url)
 
-@app.route('/kv/<key>', methods=['GET'])
+@app.route('/api/kv/<key>', methods=['GET'])
 def get_kv(key):
     record = Kv.query.filter_by(key=key).first()
     if not record:
@@ -82,7 +82,7 @@ def get_kv(key):
     data = {'key': record.key, 'value': record.value, 'time': record.update}
     return jsonify(succeed("got", data))
 
-@app.route('/kv', methods=['POST'])
+@app.route('/api/kv', methods=['POST'])
 def set_kv():
     kv = request.get_json()
     # print(kv)

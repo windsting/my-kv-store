@@ -90,7 +90,7 @@
                 </div>
                 <div class="mb-3">
                     <!-- <label for="key" class="form-label">key</label> -->
-                    <input type="text" class="form-control" id="base-url" value="http://0.0.0.0:5000/kv"
+                    <input type="text" class="form-control" id="base-url" value="http://localhost:5000/api/kv"
                         aria-describedby="baseUrlHelp">
                     <div id="baseUrlHelp" class="form-text">To test your deployment, change this url.</div>
                 </div>
@@ -233,10 +233,13 @@
                 <h5 class="card-header">Step 1 - Fork the code</h5>
                 <p>
                 <ul>
-                    <li>You can deploy it directly from my GitHub repository.</li>
-                    <li>But it's recommanded to have your own.</li>
+                    <li>In last step, Vercel gonna access your repository to deploy the code.</li>
+                    <li>To make the operation smooth, you need to fork my repository to your account.</li>
+                    <li>Vercel supports 3 code management platforms:</li>
                     <ul>
-                        <li>To avoid unnecessary deployment while I change the code.</li>
+                        <li><a href="http://github.com">GitHub</a></li>
+                        <li><a href="http://gitlab.com">GitLab</a></li>
+                        <li><a href="http://bitbucket.org">Bitbucket</a></li>
                     </ul>
                 </ul>
                 <a href="https://github.com/windsting/my-kv-store" class="btn btn-primary ms-4">
@@ -247,6 +250,55 @@
 
             <div class="step">
                 <h5>Step 2 - Prepare the Database connection string</h5>
+                <p class="info">
+                    <span class="text-success"><i class="bi bi-info-circle bi-3x"></i></span>
+                    Don't worry, the information input here <strong>will not</strong> be stored or sent anywhere.
+                </p>
+                <ol type="I">
+                    <li>
+                        On <a href="http://freedb.tech">FreeDB</a> homepage,
+                        click that <button class="btn btn-outline-primary">Dashboard</button> button
+                    </li>
+                    <li>Login with your account to go dashboard page</li>
+                    <li>
+                        Enter <code>database name</code> and
+                        <code>database user name</code> to create database <span class="text-secondary">
+                            (values below are forged for demonstrate)</span><br>
+                        <img class="rounded my-2" src="assets/images/freedb-info.png" alt="freedb information">
+                    </li>
+                    <li>
+                        <p>Copy & paste the information below</p>
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <input type="text" id="dbhost" class="form-control" placeholder="HOST">
+                            </div>
+                            <div class="col-auto">
+                                <input type="number" id="dbport" class="form-control" step="1" value="3306"
+                                    placeholder="PORT(3306)">
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="dbname" class="form-control" placeholder="DATABASE NAME">
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="dbuser" class="form-control" placeholder="DATABASE USER">
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="dbpassword" class="form-control" placeholder="PASSWORD">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="input-group mb-3">
+                            <input type="text" id="connection-string" class="form-control"
+                                placeholder="Connect string shown here" readonly>
+                            <button class="btn btn-outline-success" type="button" id="generate-copy">Generate &
+                                Copy</button>
+                        </div>
+                    </li>
+                </ol type="i">
+            </div>
+
+            <div class="step">
+                <h5>Step 3 - Deploy on Vercel</h5>
                 <p class="info">
                     <span class="text-success"><i class="bi bi-info-circle bi-3x"></i></span>
                     Don't worry, the information input here <strong>will not</strong> be stored or sent anywhere.
