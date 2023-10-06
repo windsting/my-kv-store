@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 from time import time
-from flask import Flask, jsonify, request, render_template, url_for
+from flask import Flask, jsonify, request, render_template, url_for, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from utility import env_int, env_str, failed, strExceedLimit, succeed
@@ -57,6 +57,14 @@ class Kv(db.Model):
 # Create the table if it doesn't exist
 with app.app_context():
     db.create_all()
+
+@app.route('/assets/<path:path>')
+def serve_static(path):
+    return send_from_directory('assets', path)
+
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
 
 @app.route(f'/kv-{LIST_ROUTE_PART}', methods=['GET'])
 def get_list():
