@@ -4,8 +4,8 @@ from time import time
 from flask import Flask, jsonify, request, render_template, url_for, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from utility import env_int, env_str, failed, strExceedLimit, succeed
-from timepoint import timepoint
+from api.utility import env_int, env_str, failed, strExceedLimit, succeed
+from api.timepoint import timepoint
 
 # Read environment variables
 DB_URI = env_str('DB_URI','sqlite:///kvdata.db')
