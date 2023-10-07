@@ -104,7 +104,7 @@ def set_kv():
     record = Kv.query.filter_by(key=key).first()
     # print(record)
     if record is not None:
-        userLastWriteTime = timepoint(record.update)
+        userLastWriteTime = timepoint(float(record.update))
         if userLastWriteTime.elapsed() < USER_SET_INTERVAL_MIN:
             return failed(f'please wait {USER_SET_INTERVAL_MIN} seconds')
         record.value = value
