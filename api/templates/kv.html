@@ -17,7 +17,37 @@
 
 <body>
     <h1 class="text-center">Key-Value Data</h1>
-    <div class="table-responsive" style="border-radius: .375em;">
+    <div class="d-flex align-item-center">
+        <nav aria-label="..." style="margin: auto;">
+            {% if prev_page_url %}
+            <a class="btn btn-outline-secondary" href="{{ prev_page_url }}" role="button">Previous Page</a>
+            {% else %}
+            <a class="btn btn-outline-secondary disabled" href="#" role="button">Previous Page</a>
+            {% endif %}
+            <span class="dropdown">
+                <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Go to Page
+                </a>
+                <ul class="dropdown-menu">
+                    {% for rec in page_links %}
+                    {% if rec.number == cur_page %}
+                    <li><a class="dropdown-item active" aria-current="true" href="{{ rec.link }}">{{rec.number}} /
+                            {{total_pages}}</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{{ rec.link }}">{{rec.number}} / {{total_pages}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </span>
+            {% if next_page_url %}
+            <a class="btn btn-outline-secondary" href="{{ next_page_url }}" role="button">Next Page</a>
+            {% else %}
+            <a class="btn btn-outline-secondary disabled" href="#" role="button">Next Page</a>
+            {% endif %}
+        </nav>
+    </div>
+    <div class="table-responsive my-2" style="border-radius: .375em;">
         <table class="table table-striped table-hover" style="width:100%">
             <thead class="table-secondary">
                 <tr>
@@ -38,36 +68,6 @@
                 {% endfor%}
             </tbody>
         </table>
-    </div>
-    <div class="d-flex align-item-center">
-        <nav aria-label="..." style="margin: auto;">
-            {% if prev_page_url %}
-            <a class="btn btn-primary" href="{{ prev_page_url }}" role="button">Previous Page</a>
-            {% else %}
-            <a class="btn btn-primary disabled" href="#" role="button">Previous Page</a>
-            {% endif %}
-            <span class="dropdown">
-                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Go to Page
-                </a>
-                <ul class="dropdown-menu">
-                    {% for rec in page_links %}
-                    {% if rec.number == cur_page %}
-                    <li><a class="dropdown-item active" aria-current="true" href="{{ rec.link }}">{{rec.number}} /
-                            {{total_pages}}</a></li>
-                    {% else %}
-                    <li><a class="dropdown-item" href="{{ rec.link }}">{{rec.number}} / {{total_pages}}</a></li>
-                    {% endif %}
-                    {% endfor %}
-                </ul>
-            </span>
-            {% if next_page_url %}
-            <a class="btn btn-primary" href="{{ next_page_url }}" role="button">Next Page</a>
-            {% else %}
-            <a class="btn btn-primary disabled" href="#" role="button">Next Page</a>
-            {% endif %}
-        </nav>
     </div>
     <script>
         window.onload = function () {
