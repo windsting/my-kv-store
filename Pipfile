@@ -8,6 +8,7 @@ flask-sqlalchemy = "*"
 waitress = "*"
 flask-cors = "*"
 pymysql = "*"
+cryptography = "*"
 
 [dev-packages]
 
