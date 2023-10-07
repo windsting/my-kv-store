@@ -30,7 +30,7 @@ KKEY = env_str('KKEY','key')
 VKEY = env_str('VKEY','value')
 UKEY = env_str('UKEY','update')
 
-LIST_ROUTE_PART = env_str('LIST_ROUTE_PART', 'None')      # url part to list data
+LIST_ROUTE_PART = env_str('LIST_ROUTE_PART', None)      # url part to list data
 PER_PAGE_DEFAULT = env_int('PER_PAGE_DEFAULT', 10)      # Rows per page
 PAGE_DEFAULT = env_int('PAGE_DEFAULT', 1)               # Page number
 
