@@ -16,7 +16,7 @@ During the deploy process, you can customize the behavior of the *my-kv-store se
 
 These variables below in this section define the schema of your table, they need to be set **BEFORE** the first deployment.
 
-If you need to change them after the first deployment, you need to **DROP** the table in your database.
+If you need to change them after the first deployment, you need to **DROP** the table in your database before a new deployment.
 
 - `TABLE_PREFIX`
 
@@ -106,7 +106,7 @@ If you need to change them after the first deployment, you need to **DROP** the 
 
   For example, the test API set this variable to ``, so you can explore stored data in the following link:
 
-  [https://my-kv-store.vercel.app/kv-show]
+  <https://my-kv-store.vercel.app/kv-show>
 
 - `PAGE_DEFAULT`
 
@@ -122,7 +122,7 @@ If you need to change them after the first deployment, you need to **DROP** the 
 
   > To change `per_page`, modify it manually in the address bar of browser like this:
   >
-  > `https://my-kv-store.vercel.app/kv-show?page=1&per_page=3`
+  > <https://my-kv-store.vercel.app/kv-show?page=1&per_page=3>
   >
   > with this link, there will be `3` rows in each page.
 
