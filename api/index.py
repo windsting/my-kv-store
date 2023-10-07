@@ -49,7 +49,7 @@ class Kv(db.Model):
     id = db.Column(ICOLNAME, db.Integer, primary_key=True)
     key = db.Column(KCOLNAME, db.String(KEY_COLUMN_LENGTH), nullable=False)
     value = db.Column(VCOLNAME, db.String(VALUE_COLUMN_LENGTH), nullable=False)
-    update = db.Column(UCOLNAME, db.Float)
+    update = db.Column(UCOLNAME, db.String(UPDATE_COLUMN_LENGTH), nullable=False)
 
     def __repr__(self):
         return f'<Kv {self.id}>'
