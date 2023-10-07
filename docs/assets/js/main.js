@@ -1,8 +1,8 @@
 
 
-function baseUrl() {
-    let inputUrl = document.getElementById("base-url");
-    return inputUrl.value;
+function apiUrl() {
+    let aApiUrl = document.getElementById("api-url");
+    return aApiUrl.href;
 }
 
 function key() {
@@ -68,7 +68,7 @@ function setValueDomElement(value) {
 
 function getFromCloud(event) {
     event.preventDefault();
-    get(baseUrl(), key(), setValueDomElement);
+    get(apiUrl(), key(), setValueDomElement);
 }
 
 function setToCloud(event) {
@@ -79,7 +79,23 @@ function setToCloud(event) {
         notify("Please input content for value.");
         return;
     }
-    set(baseUrl(), key(), value);
+    set(apiUrl(), key(), value);
+}
+
+function updateApiLink() {
+    let inputBaseUrl = document.getElementById("base-url");
+    let baseUrl = inputBaseUrl.value;
+    if(baseUrl.endsWith("/")){
+        baseUrl = baseUrl.slice(0,-1);
+    }
+    let link = `${baseUrl}/api/kv`;
+    let a = document.createElement('a');
+    a.innerText = link;
+    a.href = link;
+    a.id = "api-url";
+    let spanApiLink = document.getElementById("api-link");
+    spanApiLink.innerHTML = "";
+    spanApiLink.appendChild(a);
 }
 
 // Theme relate begin
@@ -201,6 +217,9 @@ async function onload() {
     btnSet.onclick = setToCloud;
     let btnGenerate = document.getElementById("generate-copy")
     btnGenerate.onclick = generateConnectionString;
+    let inputBaseUrl = document.getElementById("base-url");
+    inputBaseUrl.onchange = updateApiLink;
+    updateApiLink();
     popGithubData();
 
     // let theme = getPreferredTheme();

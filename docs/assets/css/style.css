@@ -94,3 +94,7 @@ section {
 .github-icon {
     font-size: 1.25em;
 }
+
+.vercel-button-add {
+    font-family: var(--bs-font-sans-serif);
+}

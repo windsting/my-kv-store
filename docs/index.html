@@ -85,14 +85,21 @@
                 </div>
                 <div class="mb-3">
                     <!-- <label for="value" class="form-label">Example textarea</label> -->
-                    <textarea class="form-control" id="value" rows="10"
+                    <textarea class="form-control" id="value" rows="6"
                         placeholder="Value can be inputted or shown here"></textarea>
                 </div>
-                <div class="mb-3">
-                    <!-- <label for="key" class="form-label">key</label> -->
-                    <input type="text" class="form-control" id="base-url" value="http://localhost:5000/api/kv"
-                        aria-describedby="baseUrlHelp">
-                    <div id="baseUrlHelp" class="form-text">To test your deployment, change this url.</div>
+                <div class="mb-3 row">
+                    <label for="base-url" class="col-form-label col-2">Project Url</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" id="base-url" value="https://my-kv-store.vercel.app"
+                            aria-describedby="baseUrlHelp">
+                    </div>
+                    <div id="baseUrlHelp" class="form-text">
+                        <p>To test your deployment, change url above to the link to your project.</p>
+                        <p>
+                            The API url will be: <span id="api-link"></span>
+                        </p>
+                    </div>
                 </div>
             </form>
         </div>
@@ -190,8 +197,13 @@
         <div class="container">
             <h2>Deploy Step by Step</h2>
 
-            <div class="step">
+            <div id="step-0" class="step">
                 <h5 class="card-header">Step 0 - Prerequisite (To register)</h5>
+                <p>
+                    <ul>
+                        <li>In order to deploy, you'll need accounts of the following platforms</li>
+                    </ul>
+                </p>
                 <div class="row">
                     <div class="col-sm-4 mb-3 mb-sm-0">
                         <div class="card h-100">
@@ -229,7 +241,7 @@
                 </div>
             </div>
 
-            <div class="step">
+            <div id="step-1" class="step">
                 <h5 class="card-header">Step 1 - Fork the code</h5>
                 <p>
                 <ul>
@@ -248,7 +260,7 @@
                 </p>
             </div>
 
-            <div class="step">
+            <div id="step-2" class="step">
                 <h5>Step 2 - Prepare the Database connection string</h5>
                 <p class="info">
                     <span class="text-success"><i class="bi bi-info-circle bi-3x"></i></span>
@@ -297,52 +309,40 @@
                 </ol type="i">
             </div>
 
-            <div class="step">
+            <div id="step-3" class="step">
                 <h5>Step 3 - Deploy on Vercel</h5>
                 <p class="info">
-                    <span class="text-success"><i class="bi bi-info-circle bi-3x"></i></span>
-                    Don't worry, the information input here <strong>will not</strong> be stored or sent anywhere.
+                    <span class="text-danger"><i class="bi bi-info-circle bi-3x"></i></span>
+                    <strong>Do not</strong> reveal the configuration data used here outside vercel.
                 </p>
                 <ol type="I">
                     <li>
-                        On <a href="http://freedb.tech">FreeDB</a> homepage,
-                        click that <button class="btn btn-outline-primary">Dashboard</button> button
+                        If you are just registered, please integrate your vercel account to your code management platform.
                     </li>
-                    <li>Login with your account to go dashboard page</li>
-                    <li>
-                        Enter <code>database name</code> and
-                        <code>database user name</code> to create database <span class="text-secondary">
-                            (values below are forged for demonstrate)</span><br>
-                        <img class="rounded my-2" src="assets/images/freedb-info.png" alt="freedb information">
+                    <li>In your overview page, create a new project(click that 
+                        <button class="btn btn-dark vercel-button-add">
+                            Add New... <i class="bi bi-chevron-down ms-2 small"></i>
+                        </button>
+                        and choose "Project")
                     </li>
                     <li>
-                        <p>Copy & paste the information below</p>
-                        <div class="row g-2 align-items-center">
-                            <div class="col-auto">
-                                <input type="text" id="dbhost" class="form-control" placeholder="HOST">
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" id="dbport" class="form-control" step="1" value="3306"
-                                    placeholder="PORT(3306)">
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" id="dbname" class="form-control" placeholder="DATABASE NAME">
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" id="dbuser" class="form-control" placeholder="DATABASE USER">
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" id="dbpassword" class="form-control" placeholder="PASSWORD">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="input-group mb-3">
-                            <input type="text" id="connection-string" class="form-control"
-                                placeholder="Connect string shown here" readonly>
-                            <button class="btn btn-outline-success" type="button" id="generate-copy">Generate &
-                                Copy</button>
-                        </div>
+                        Use the filter to find code of this repository and import it:
+                        <img class="rounded my-2" src="assets/images/vercel-import-repo.jpeg" alt="vercel import repo">
                     </li>
+                    <li>
+                        In project configuring page, in the <i>Environment Variables</i> sector, add a key-value pair, the key is <code>DB_URI</code> and value is the <i>Connection String</i> got from <a href="#step-2">Step 2</a>. Looks like this:
+
+                        <img class="rounded my-2" src="assets/images/vercel-set-db-uri.jpeg" alt="vercel set db uri">
+                    </li>
+                    <li>
+                        Before you click the <i>Deploy</i> button, please check 
+                        <a href="https://github.com/windsting/my-kv-store/blob/main/docs/variables.md">
+                            the document of Environment Variables
+                        </a>
+                        and set <i>Environment Variables</i> for customizing the behavior of the deployment.
+                    </li>
+                    <li>Click the <i>Deploy</i> button to finish the deployment.</li>
+                    <li>Please paste the url of your deployed project into <a href="#get"><i>Project Url text box</i></a> to test it.</li>
                 </ol type="i">
             </div>
         </div>
