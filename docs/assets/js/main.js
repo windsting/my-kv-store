@@ -17,9 +17,13 @@ function notify(message) {
 function get(url, key, callback) {
     const xhr = new XMLHttpRequest();
     xhr.onload = (event) => {
-        // console.log(event);
+        if (xhr.status != 200) {
+            notify(`Get operation got error: ${xhr.status}`);
+            console.log(event);
+            return;
+        }
         const response = xhr.responseText;
-        let data = JSON.parse(response)
+        let data = JSON.parse(response);
         if (!data.hasOwnProperty('data')) {
             notify(`Result of Get: ${data.result}(${data.desc})`);
             return;
@@ -30,7 +34,7 @@ function get(url, key, callback) {
         callback(data.value);
     };
     xhr.onerror = (event) => {
-        // console.log(event);
+        console.log(event);
         notify("Result of Get: Failed, please try it later.");
     };
     xhr.open("GET", url + "/" + key, true);
