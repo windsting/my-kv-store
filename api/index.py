@@ -62,6 +62,7 @@ with app.app_context():
 def serve_static(path):
     return send_from_directory('assets', path)
 
+@app.route('/')
 @app.route('/index.html')
 def index():
     return render_template('index.html')
