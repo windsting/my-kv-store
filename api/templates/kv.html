@@ -20,12 +20,12 @@
     <div class="d-flex align-item-center">
         <nav aria-label="..." style="margin: auto;">
             {% if prev_page_url %}
-            <a class="btn btn-outline-secondary" href="{{ prev_page_url }}" role="button">Previous Page</a>
+            <a class="btn btn-outline-dark" href="{{ prev_page_url }}" role="button">Previous Page</a>
             {% else %}
-            <a class="btn btn-outline-secondary disabled" href="#" role="button">Previous Page</a>
+            <a class="btn btn-outline-dark disabled" href="#" role="button">Previous Page</a>
             {% endif %}
             <span class="dropdown">
-                <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Go to Page
                 </a>
@@ -41,9 +41,9 @@
                 </ul>
             </span>
             {% if next_page_url %}
-            <a class="btn btn-outline-secondary" href="{{ next_page_url }}" role="button">Next Page</a>
+            <a class="btn btn-outline-dark" href="{{ next_page_url }}" role="button">Next Page</a>
             {% else %}
-            <a class="btn btn-outline-secondary disabled" href="#" role="button">Next Page</a>
+            <a class="btn btn-outline-dark disabled" href="#" role="button">Next Page</a>
             {% endif %}
         </nav>
     </div>
