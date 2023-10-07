@@ -9,9 +9,9 @@ from api.timepoint import timepoint
 
 # Read environment variables
 DB_URI = env_str('DB_URI','sqlite:///kvdata.db')
-ROW_COUNT_LIMIT = env_int('ROW_COUNT_LIMIT',1000)
+ROW_COUNT_LIMIT = env_int('ROW_COUNT_LIMIT',5000)
 KEY_LENGTH_LIMIT = env_int('KEY_LENGTH_LIMIT', 128)
-VALUE_LENGTH_LIMIT = env_int('VALUE_LENGTH_LIMIT', 1024 * 10)   # bytes
+VALUE_LENGTH_LIMIT = env_int('VALUE_LENGTH_LIMIT', 1024 * 8)   # bytes
 USER_SET_INTERVAL_MIN = env_int('USER_SET_INTERVAL_MIN', 60)    # seconds
 SYSTEM_SET_INTERVAL_MIN = env_int('SYSTEM_SET_INTERVAL_MIN', 1) # seconds
 
