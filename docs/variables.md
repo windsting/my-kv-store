@@ -120,7 +120,7 @@ If you need to change them after the first deployment, you need to **DROP** the 
 
   The count of records gonna be displayed in a single page.
 
-  > To change `per_page`, modify it manually in the address bar of browser like this:
+  > Please click the **Rows Per Page** to change `per_page`, by choosing `3`, the link will be this:
   >
   > <https://my-kv-store.vercel.app/kv-show?page=1&per_page=3>
   >
