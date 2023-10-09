@@ -104,9 +104,11 @@ If you need to change them after the first deployment, you need to **DROP** the 
 
   `https://your-project-name.vercel.app/kv-(value-of-LIST_ROUTE_PART)`
 
-  For example, the test API set this variable to ``, so you can explore stored data in the following link:
+  For example, the test API set this variable to `show`, so you can explore stored data in the following link:
 
   <https://my-kv-store.vercel.app/kv-show>
+
+  It's recommanded to save your own link as a **Bookmark**.
 
 - `PAGE_DEFAULT`
 
@@ -119,12 +121,6 @@ If you need to change them after the first deployment, you need to **DROP** the 
   - Default: `10`
 
   The count of records gonna be displayed in a single page.
-
-  > Please click the **Rows Per Page** to change `per_page`, by choosing `3`, the link will be this:
-  >
-  > <https://my-kv-store.vercel.app/kv-show?page=1&per_page=3>
-  >
-  > with this link, there will be `3` rows in each page.
 
 By default, data transfered between browser and API looks like this:
 
