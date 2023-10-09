@@ -7,7 +7,7 @@ function apiUrl() {
 
 function key() {
     let inputKey = document.getElementById("key");
-    if (!inputKey.value){
+    if (!inputKey.value) {
         notify(`key can not be empty!`);
     }
     return inputKey.value;
@@ -15,7 +15,7 @@ function key() {
 
 function notify(message, result) {
     let tc = "bg-danger-subtle";
-    if (result === "succeed"){
+    if (result === "succeed") {
         tc = "bg-success-subtle"
     } else {
         result = "failed";
@@ -32,7 +32,7 @@ function notify(message, result) {
 }
 
 function get(url, key, callback) {
-    if (!key){
+    if (!key) {
         return;
     }
     const xhr = new XMLHttpRequest();
@@ -63,7 +63,7 @@ function get(url, key, callback) {
 }
 
 function set(url, key, value) {
-    if (!key){
+    if (!key) {
         return;
     }
     const data = JSON.stringify({ key: key, value: value });
@@ -109,8 +109,8 @@ function setToCloud(event) {
 function updateApiLink() {
     let inputBaseUrl = document.getElementById("base-url");
     let baseUrl = inputBaseUrl.value;
-    if(baseUrl.endsWith("/")){
-        baseUrl = baseUrl.slice(0,-1);
+    if (baseUrl.endsWith("/")) {
+        baseUrl = baseUrl.slice(0, -1);
     }
     let link = `${baseUrl}/api/kv`;
     let a = document.createElement('a');
@@ -221,7 +221,7 @@ async function getStarCount(userName, repoName) {
     });
 }
 
-async function popGithubData(){
+async function popGithubData() {
     let data = await getStarCount("windsting", "my-kv-store");
     if (!data) return;
     let spanForkCount = document.getElementById("fork-count");
@@ -232,6 +232,30 @@ async function popGithubData(){
 
 }
 // GitHub star count end
+
+// typewriter begin
+function startTypewriter() {
+    let element = document.getElementById('typewriter');
+
+    let typewriter = new Typewriter(element, {
+        loop: true
+    });
+
+    typewriter.typeString('Your own FREE online key-value storage API')
+        .pauseFor(2500)
+        .deleteAll()
+        .typeString('Easy to access')
+        .pauseFor(2500)
+        .deleteAll()
+        .typeString('Free (As in FREE BEER)')
+        .pauseFor(2500)
+        .deleteAll()
+        .typeString('Guided deployment')
+        .pauseFor(2500)
+        .deleteAll()
+        .start();
+}
+// typewriter end
 
 async function onload() {
     let btnGet = document.getElementById("get");
@@ -244,6 +268,7 @@ async function onload() {
     inputBaseUrl.onchange = updateApiLink;
     updateApiLink();
     popGithubData();
+    startTypewriter();
 
     // let theme = getPreferredTheme();
     // console.log(theme);
