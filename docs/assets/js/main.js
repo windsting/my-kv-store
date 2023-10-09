@@ -10,8 +10,22 @@ function key() {
     return inputKey.value;
 }
 
-function notify(message) {
-    alert(message);
+function notify(message, result) {
+    let tc = "bg-danger-subtle";
+    if (result === "succeed"){
+        tc = "bg-success-subtle"
+    } else {
+        result = "failed";
+    }
+    let toastInfo = {
+        header: result,
+        body: message,
+        delay: 8000,
+        toastClass: tc
+    };
+    // console.log(toastInfo);
+    bootstrap.showToast(toastInfo);
+    // alert(message);
 }
 
 function get(url, key, callback) {
@@ -24,8 +38,8 @@ function get(url, key, callback) {
         }
         const response = xhr.responseText;
         let data = JSON.parse(response);
+        notify(`Result of Get: ${data.result}(${data.desc})`, data.result);
         if (!data.hasOwnProperty('data')) {
-            notify(`Result of Get: ${data.result}(${data.desc})`);
             return;
         }
         data = data.data;
@@ -48,7 +62,7 @@ function set(url, key, value) {
         // console.log(event);
         const data = JSON.parse(xhr.responseText);
         console.log(data);
-        notify(`Result of Set: ${data.result}(${data.desc})`)
+        notify(`Result of Set: ${data.result}(${data.desc})`, data.result)
     };
     xhr.onerror = (event) => {
         // console.error(event);
