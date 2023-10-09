@@ -39,6 +39,7 @@ cors = CORS(app)
 
 # Define the database connection
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URI
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {'pool_pre_ping': True}
 
 # Create the database object
 db = SQLAlchemy(app)
