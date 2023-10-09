@@ -7,6 +7,9 @@ function apiUrl() {
 
 function key() {
     let inputKey = document.getElementById("key");
+    if (!inputKey.value){
+        notify(`key can not be empty!`);
+    }
     return inputKey.value;
 }
 
@@ -29,11 +32,14 @@ function notify(message, result) {
 }
 
 function get(url, key, callback) {
+    if (!key){
+        return;
+    }
     const xhr = new XMLHttpRequest();
     xhr.onload = (event) => {
         if (xhr.status != 200) {
             notify(`Get operation got error: ${xhr.status}`);
-            console.log(event);
+            // console.log(event);
             return;
         }
         const response = xhr.responseText;
@@ -49,7 +55,7 @@ function get(url, key, callback) {
         callback(data.value);
     };
     xhr.onerror = (event) => {
-        console.log(event);
+        console.error(event);
         notify("Result of Get: Failed, please try it later.");
     };
     xhr.open("GET", url + "/" + key, true);
@@ -57,16 +63,19 @@ function get(url, key, callback) {
 }
 
 function set(url, key, value) {
+    if (!key){
+        return;
+    }
     const data = JSON.stringify({ key: key, value: value });
     const xhr = new XMLHttpRequest();
     xhr.onload = (event) => {
         // console.log(event);
         const data = JSON.parse(xhr.responseText);
-        console.log(data);
+        // console.log(data);
         notify(`Result of Set: ${data.result}(${data.desc})`, data.result)
     };
     xhr.onerror = (event) => {
-        // console.error(event);
+        console.error(event);
         notify("Result of Set: Failed, please try it later.");
     };
     xhr.open("POST", url, true);
@@ -90,7 +99,7 @@ function setToCloud(event) {
     event.preventDefault();
     let textValue = document.getElementById("value");
     const value = textValue.value;
-    if (value === null || value === "") {
+    if (!value) {
         notify("Please input content for value.");
         return;
     }
@@ -141,7 +150,6 @@ function getValue(id, defaultValue = null) {
     var value = input.value;
     if (!value && !defaultValue) {
         notify(`${input.attributes["placeholder"].textContent} can't be empty!`);
-        // console.log()
     }
 
     return value ?? defaultValue;
@@ -220,7 +228,7 @@ async function popGithubData(){
     spanForkCount.textContent = data.forks_count;
     let spanStarCount = document.getElementById("star-count");
     spanStarCount.textContent = data.stargazers_count;
-    console.log(data);
+    // console.log(data);
 
 }
 // GitHub star count end
