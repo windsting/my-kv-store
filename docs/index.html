@@ -36,11 +36,14 @@
                         <a class="nav-link border-end" href="#features-jump">Features</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link border-end" href="#deploy-jump">Deploy</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link border-end" href="#about-jump">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://github.com/windsting/my-kv-store" class="btn btn-outline-secondary ms-lg-2"> 
-                            <i class="bi bi-github github-icon"></i> 
+                        <a href="https://github.com/windsting/my-kv-store" class="btn btn-outline-secondary ms-lg-2">
+                            <i class="bi bi-github github-icon"></i>
                             <span id="star-count"></span>
                             <i class="bi bi-star github-icon"></i>
                         </a>
@@ -159,7 +162,7 @@
                             <p class="card-text">Simply producing and consuming data with the plain HTTP
                                 <code>GET</code> and <code>POST</code>(Violate the RESTful rules, but easy to use).
                             </p>
-                            <a href="#get-set-jump" class="btn btn-primary bottom-0">Try it</a>
+                            <a href="#get-set-jump" class="btn btn-outline-dark bottom-0">Try it</a>
                         </div>
                     </div>
                 </div>
@@ -173,7 +176,7 @@
                         <div class="card-body">
                             <p class="card-text">By leveraging the online resources, not necessary to pay, not even need
                                 credit card information.</p>
-                            <a href="#limitation-jump" class="btn btn-primary">With limitation</a>
+                            <a href="#limitation-jump" class="btn btn-outline-dark">With limitation</a>
                         </div>
                     </div>
                 </div>
@@ -183,7 +186,7 @@
                         <div class="card-body">
                             <p class="card-text">With the step-by-step guide, any internet user can deploy it,
                                 techniqual knowledge is not necessary.</p>
-                            <a href="#deploy-jump" class="btn btn-primary">Read the guide</a>
+                            <a href="#deploy-jump" class="btn btn-outline-dark">Read the guide</a>
                         </div>
                     </div>
                 </div>
@@ -198,21 +201,23 @@
             <h2>Deploy Step by Step</h2>
 
             <div id="step-0" class="step">
-                <h5 class="card-header">Step 0 - Prerequisite (To register)</h5>
+                <h5 class="card-header">Step 0 - Prerequisite (Create accounts)</h5>
                 <p>
-                    <ul>
-                        <li>In order to deploy, you'll need accounts of the following platforms</li>
-                    </ul>
+                <ul>
+                    <li>In order to deploy, you'll need accounts of the following platforms</li>
+                </ul>
                 </p>
                 <div class="row">
                     <div class="col-sm-4 mb-3 mb-sm-0">
                         <div class="card h-100">
-                            <div class="card-header">GitHub</div>
+                            <div class="card-header">Code Management Platform</div>
                             <div class="card-body">
                                 <p class="card-text">
                                     It's very likely you have already had it.
                                 </p>
-                                <a href="https://github.com" class="btn btn-primary bottom-0">Go GitHub</a>
+                                <a href="https://github.com" class="btn btn-outline-dark bottom-0">GitHub</a>
+                                <a href="https://gitlab.com" class="btn btn-outline-dark bottom-0">GitLib</a>
+                                <a href="https://bitbucket.org/" class="btn btn-outline-dark bottom-0">Bitbucket</a>
                             </div>
                         </div>
                     </div>
@@ -225,7 +230,7 @@
                                 <p class="card-text">
                                     Credit card information <strong>not</strong> needed.
                                 </p>
-                                <a href="https://freedb.tech" class="btn btn-primary">Go FreeDB</a>
+                                <a href="https://freedb.tech" class="btn btn-outline-dark">FreeDB</a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +239,7 @@
                             <div class="card-header">Vercel</div>
                             <div class="card-body">
                                 <p class="card-text">Better to connect your GitHub account.</p>
-                                <a href="https://vercel.com" class="btn btn-primary">Go Vercel</a>
+                                <a href="https://vercel.com" class="btn btn-outline-dark">Vercel</a>
                             </div>
                         </div>
                     </div>
@@ -249,14 +254,14 @@
                     <li>To make the operation smooth, you need to fork my repository to your account.</li>
                     <li>Vercel supports 3 code management platforms:</li>
                     <ul>
-                        <li><a href="http://github.com">GitHub</a></li>
-                        <li><a href="http://gitlab.com">GitLab</a></li>
-                        <li><a href="http://bitbucket.org">Bitbucket</a></li>
+                        <li><a href="https://github.com">GitHub</a></li>
+                        <li><a href="https://gitlab.com">GitLab</a></li>
+                        <li><a href="https://bitbucket.org">Bitbucket</a></li>
                     </ul>
                 </ul>
-                <a href="https://github.com/windsting/my-kv-store" class="btn btn-primary ms-4">
+                <a href="https://github.com/windsting/my-kv-store" class="btn btn-outline-dark ms-4">
                     <i class="bi bi-diagram-2 github-icon"></i>
-                    (<span id="fork-count"></span>) Go Fork Repository</a>
+                    (<span id="fork-count"></span>) Repository To Fork</a>
                 </p>
             </div>
 
@@ -319,14 +324,14 @@
                     <li>
                         If you are just registered, please integrate your vercel account to your code management platform.
                     </li>
-                    <li>In your overview page, create a new project(click that 
+                    <li>In your overview page, create a new project(click that
                         <button class="btn btn-dark vercel-button-add">
                             Add New... <i class="bi bi-chevron-down ms-2 small"></i>
                         </button>
                         and choose "Project")
                     </li>
                     <li>
-                        Use the filter to find code of this repository and import it:
+                        Use the filter to find repository of this project and import it:
                         <img class="rounded my-2" src="assets/images/vercel-import-repo.jpeg" alt="vercel import repo">
                     </li>
                     <li>
@@ -335,20 +340,28 @@
                         <img class="rounded my-2" src="assets/images/vercel-set-db-uri.jpeg" alt="vercel set db uri">
                     </li>
                     <li>
-                        Before you click the <i>Deploy</i> button, please check 
+                        <strong>Before</strong> you click the wide
+                        <button class="btn btn-dark px-5 vercel-button-add">
+                            Deploy</i>
+                        </button>
+                        button, please check
                         <a href="https://github.com/windsting/my-kv-store/blob/main/docs/variables.md">
                             the document of Environment Variables
                         </a>
-                        and set <i>Environment Variables</i> for customizing the behavior of the deployment.
+                        and set <i>Environment Variables</i> to customize the behavior of the API being deployed.
                     </li>
-                    <li>Click the <i>Deploy</i> button to finish the deployment.</li>
-                    <li>Please paste the url of your deployed project into <a href="#get"><i>Project Url text box</i></a> to test it.</li>
+                    <li>Click the wide
+                        <button class="btn btn-dark px-5 vercel-button-add">
+                            Deploy</i>
+                        </button>
+                        button to finish the deployment.</li>
+                    <li>Please paste the url of your deployed project into <a href="#get">Project Url text box</a> to test it.</li>
                 </ol type="i">
             </div>
         </div>
     </section>
 
-    <section id="discus" class="bg-body-secondary">
+    <section id="discus" class="bg-body-tertiary">
         <div class="container bg-body-tertiary rounded-4 py-2">
             <div id="disqus_thread">
                 <p>Something</p>
@@ -358,21 +371,79 @@
         </div>
     </section>
 
-    <div id="about-jump" class="b-example-divider bg-body-secondary"></div>
-    <section id="about" class="bg-body-secondary">
-        <div class="container">
-            <h2>About</h2>
-            <a href="https://www.buymeacoffee.com/windstings"><img
-                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=windstings&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+    <footer id="about-jump" class="bd-footer py-4 py-md-5 bg-body-secondary">
+        <div class="container px-4 px-md-3 text-body-secondary">
+            <div class="row">
+                <div class="col-lg-3 mb-3">
+                    <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="#"
+                        aria-label="My Kv Store">
+                        <span class="fs-5">My Kv Store</span>
+                    </a>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2">Designed and implemented with
+                            <i class="bi bi-heart-fill text-danger"></i>
+                        </li>
+                        <li class="mb-2">Code licensed <a
+                                href="https://github.com/windsting/my-kv-store/blob/main/LICENSE" target="_blank"
+                                rel="license noopener">MIT</a>, docs <a
+                                href="https://creativecommons.org/licenses/by/3.0/" target="_blank"
+                                rel="license noopener">CC BY 3.0</a>.</li>
+                        <li class="mb-2">
+                            I created the prototype of this project due to my own requirement, and composed this document to help anyone who share the same requirement. If you like this project, please consider
+                        </li>
+                        <li class="mb-2">
+                            <a href="https://www.buymeacoffee.com/windstings"><img
+                                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=windstings&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+                        </li>
+                        <li class="mb-2">
+                            Windsting 2023
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Home</a></li>
+                        <li class="mb-2"><a href="https://github.com/windsting/my-kv-store">Repository</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Built With</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://www.python.org"></i>Python 3</a></li>
+                        <li class="mb-2"><a href="https://flask.palletsprojects.com">Flask</a></li>
+                        <li class="mb-2"><a href="https://www.sqlalchemy.org"></i>SQLAlchemy</a></li>
+                        <li class="mb-2"><a href="https://getbootstrap.com"></i>Bootstrap</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Creator</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://github.com/windsting"><i class="bi bi-github text-dark"></i>
+                                windsting</a></li>
+                        <li class="mb-2"><a href="https://stackoverflow.com/users/2721453/windsting"><i
+                                    class="bi bi-stack-overflow  text-dark"></i> windsting</a></li>
+                        <li class="mb-2"><a href="https://www.linkedin.com/in/windsting"><i
+                                    class="bi bi-linkedin  text-dark"></i> windsting</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Utilized</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://freedb.tech">FreeDB</a></li>
+                        <li class="mb-2"><a href="https://vercel.com">Vercel</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </section>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script type="module" src="assets/js/main.js"></script>
     <script src="assets/js/disqus.js"></script>
     <script id="dsq-count-scr" src="//my-kv-store.disqus.com/count.js" async></script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 
 </html>

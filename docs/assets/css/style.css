@@ -98,3 +98,8 @@ section {
 .vercel-button-add {
     font-family: var(--bs-font-sans-serif);
 }
+
+#discus {
+    border-top: var(--bs-dark) 0.25em solid;
+    /* border-bottom: var(--bs-dark) 0.2em solid; */
+}
