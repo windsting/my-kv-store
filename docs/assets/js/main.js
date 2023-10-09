@@ -38,13 +38,14 @@ function get(url, key, callback) {
         }
         const response = xhr.responseText;
         let data = JSON.parse(response);
-        notify(`Result of Get: ${data.result}(${data.desc})`, data.result);
         if (!data.hasOwnProperty('data')) {
+            notify(`Result of Get: ${data.result}(${data.desc})`, data.result);
             return;
         }
+        let time = new Date(parseFloat(data.data.update) * 1000);
+        notify(`Result of Get: ${data.result}(${data.desc}) update at <br> ${time}`, data.result);
         data = data.data;
-        let time = new Date(parseFloat(data.time) * 1000);
-        console.log(`Last upload time: ${time}`);
+        // console.log(`Last upload time: ${time}`);
         callback(data.value);
     };
     xhr.onerror = (event) => {

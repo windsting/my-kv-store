@@ -68,28 +68,46 @@ def serve_static(path):
 def index():
     return render_template('index.html')
 
+def get_page(page, per_page):
+    cpc = Kv.query.paginate(page=page, per_page=per_page)   # cur_page_content
+    rows = [{"id": r.id, KKEY: r.key, VKEY: r.value, UKEY: r.update} for r in cpc]
+    return rows, cpc
+
 @app.route(f'/kv-{LIST_ROUTE_PART}', methods=['GET'])
 def get_list():
     if LIST_ROUTE_PART is None:
         return render_template('404.html')
     page = request.args.get('page', PAGE_DEFAULT, type=int)
     per_page = request.args.get('per_page', PER_PAGE_DEFAULT, type=int)
-    cpc = Kv.query.paginate(page=page, per_page=per_page)   # cur_page_content
-    rows = [{"id": r.id, KKEY: r.key, VKEY: r.value, 'time': r.update} for r in cpc]
+    rows, cpc = get_page(page, per_page)    # cpc is cur_page_content
     prev_page_url = url_for('get_list', page=page-1, per_page=per_page) if cpc.has_prev else None
     next_page_url = url_for('get_list', page=page+1, per_page=per_page) if cpc.has_next else None
     page_links = [{'link':url_for('get_list', page=p, per_page=per_page), 'number': p} for p in range(1,cpc.pages+1)]
     return render_template('kv.html', kv_list=rows, page_links=page_links,
                            cur_page=page, total_pages=cpc.pages,
                            prev_page_url=prev_page_url,
-                           next_page_url=next_page_url)
+                           next_page_url=next_page_url,
+                           KKEY=KKEY, UKEY=UKEY, VKEY=VKEY)
+
+@app.route(f'/api/kv-{LIST_ROUTE_PART}', methods=['GET'])
+def page():
+    if LIST_ROUTE_PART is None:
+        return jsonify(failed("disabled"))
+    page = request.args.get('page', PAGE_DEFAULT, type=int)
+    per_page = request.args.get('per_page', PER_PAGE_DEFAULT, type=int)
+    rows, cpc = get_page(page, per_page)    # cpc is cur_page_content
+    return jsonify(succeed('got', {
+        'rows': rows,
+        'cur_page': page, 'total_pages': cpc.pages,
+        'has_prev': cpc.has_prev, 'has_next': cpc.has_next}))
+
 
 @app.route('/api/kv/<key>', methods=['GET'])
 def get_kv(key):
     record = Kv.query.filter_by(key=key).first()
     if not record:
         return jsonify(failed('record not exist'))
-    data = {'key': record.key, 'value': record.value, 'time': record.update}
+    data = {KKEY: record.key, VKEY: record.value, UKEY: record.update}
     return jsonify(succeed("got", data))
 
 @app.route('/api/kv', methods=['POST'])

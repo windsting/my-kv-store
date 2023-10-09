@@ -75,9 +75,9 @@
                 {% for kv in kv_list %}
                 <tr>
                     <td>{{ kv.id }}</td>
-                    <td>{{ kv.key }}</td>
-                    <td>{{ kv.value }}</td>
-                    <td class="update-time">{{ kv.time }}</td>
+                    <td>{{ kv[KKEY] }}</td>
+                    <td>{{ kv[VKEY] }}</td>
+                    <td class="update-time">{{ kv[UKEY] }}</td>
                 </tr>
                 {% endfor%}
             </tbody>
