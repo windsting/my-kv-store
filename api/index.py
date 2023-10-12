@@ -73,7 +73,9 @@ def serve_static(path):
 def index():
     return render_template('index.html', 
                            enable_try_page = ENABLE_TRY_PAGE,
-                           list_route_part = LIST_ROUTE_PART)
+                           list_route_part = LIST_ROUTE_PART,
+                           HOMEPAGE_TITLE = HOMEPAGE_TITLE,
+                           HOMEPAGE_TITLE2 = HOMEPAGE_TITLE2)
 
 def get_page(page, per_page):
     cpc = Kv.query.paginate(page=page, per_page=per_page)   # cur_page_content
