@@ -30,9 +30,14 @@ KKEY = env_str('KKEY','key')
 VKEY = env_str('VKEY','value')
 UKEY = env_str('UKEY','update')
 
+# Frontend customize
 LIST_ROUTE_PART = env_str('LIST_ROUTE_PART', None)      # url part to list data
 PER_PAGE_DEFAULT = env_int('PER_PAGE_DEFAULT', 10)      # Rows per page
 PAGE_DEFAULT = env_int('PAGE_DEFAULT', 1)               # Page number
+
+HOMEPAGE_TITLE = env_str('HOMEPAGE_TITLE', 'My Kv Store')
+HOMEPAGE_TITLE2 = env_str('HOMEPAGE_TITLE2', 'Your own key-value storage API')
+ENABLE_TRY_PAGE = env_int('ENABLE_TRY_PAGE', 0)
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -66,17 +71,25 @@ def serve_static(path):
 @app.route('/')
 @app.route('/index.html')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', 
+                           enable_try_page = ENABLE_TRY_PAGE,
+                           list_route_part = LIST_ROUTE_PART)
 
 def get_page(page, per_page):
     cpc = Kv.query.paginate(page=page, per_page=per_page)   # cur_page_content
     rows = [{"id": r.id, KKEY: r.key, VKEY: r.value, UKEY: r.update} for r in cpc]
     return rows, cpc
 
+@app.route('/get-and-set', methods=['GET'])
+def try_page():
+    if ENABLE_TRY_PAGE == 0:
+        return render_template('404.html'), 404
+    return render_template('get-and-set.html')
+
 @app.route(f'/kv-{LIST_ROUTE_PART}', methods=['GET'])
 def get_list():
     if LIST_ROUTE_PART is None:
-        return render_template('404.html')
+        return render_template('404.html'), 404
     page = request.args.get('page', PAGE_DEFAULT, type=int)
     per_page = request.args.get('per_page', PER_PAGE_DEFAULT, type=int)
     rows, cpc = get_page(page, per_page)    # cpc is cur_page_content

@@ -48,6 +48,14 @@
             /* margin-left: 3em; */
             font-family: var(--bs-font-monospace);
         }
+
+        #links {
+            /* padding-left: 10em; */
+            /* padding-right: 10em; */
+            display: grid;
+            column-gap: 1em;
+            grid-template-columns: 1fr 1fr;
+        }
     </style>
 </head>
 
@@ -73,8 +81,17 @@
                     </ul>
                 </div>
 
-                <a class="btn btn-lg btn-outline-primary" href="https://windsting.github.io/my-kv-store">Website</a>
-                <a class="btn btn-lg btn-outline-dark" href="https://github.com/windsting/my-kv-store"><i class="bi bi-github github-icon"></i>  GitHub</a>
+                <div id="links">
+                    {% if enable_try_page %}
+                    <a class="btn btn-lg btn-outline-primary" href="get-and-set" role="button">Try get-and-set</a>
+                        {% if list_route_part %}
+                        <a class="btn btn-lg btn-outline-dark" href="kv-{{list_route_part}}" role="button">Explore Data</a>
+                        {% endif %}
+                    {% else %}
+                    <a class="btn btn-lg btn-outline-primary" href="https://windsting.github.io/my-kv-store">Website</a>
+                    <a class="btn btn-lg btn-outline-dark" href="https://github.com/windsting/my-kv-store"><i class="bi bi-github github-icon"></i>  GitHub</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
