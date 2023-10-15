@@ -54,13 +54,13 @@
     </nav>
 
     <!-- hero -->
-    <section id="hero" class="d-flex align-items-center text-center">
+    <section id="hero" class="d-flex">
         <div class="container">
             <h1 class="fw-semibold display-2">Welcome to MyKvStore</h1>
             <p id="typewriter" class="font-monospace">Your own FREE online key-value storage API</p>
-            <div>
+            <div class="text-center">
                 <!-- <a href="#get-set-jump" role="button" class="btn btn-success btn-lg">Try Get and Set</a> -->
-                <a href="#deploy-jump" role="button" class="btn btn-success btn-lg mt-4">Deploy Step-by-Step</a>
+                <a href="#deploy-jump" role="button" class="btn btn-outline-success btn-lg mt-4">Deploy Step-by-Step</a>
             </div>
         </div>
     </section>
@@ -72,7 +72,7 @@
             <h2 class="h2">Get and set</h2>
             <p class="info">
                 <span class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i></span> Please <strong>do
-                    not</strong> include any privacy information in both <code>key</code> and
+                    not</strong> include any confidential information in both <code>key</code> and
                 <code>value</code> text.
             </p>
             <form>
@@ -92,15 +92,15 @@
                         placeholder="Value can be inputted or shown here"></textarea>
                 </div>
                 <div class="mb-3 row">
-                    <label for="base-url" class="col-form-label col-2">Project Url</label>
+                    <label for="base-url" class="col-form-label col-2">Project URL</label>
                     <div class="col-10">
                         <input type="text" class="form-control" id="base-url" value="https://my-kv-store.vercel.app"
                             aria-describedby="baseUrlHelp">
                     </div>
                     <div id="baseUrlHelp" class="form-text">
-                        <p>To test your deployment, change url above to the link to your project.</p>
+                        <p>To test your deployment, replace it to the URL of your project.</p>
                         <p>
-                            The API url will be: <span id="api-link"></span>
+                            The API URL will be: <span id="api-link"></span>
                         </p>
                     </div>
                 </div>
@@ -300,7 +300,7 @@
                                 <input type="text" id="dbuser" class="form-control" placeholder="DATABASE USER">
                             </div>
                             <div class="col-auto">
-                                <input type="text" id="dbpassword" class="form-control" placeholder="PASSWORD">
+                                <input type="password" id="dbpassword" class="form-control" placeholder="PASSWORD">
                             </div>
                         </div>
                         <hr>

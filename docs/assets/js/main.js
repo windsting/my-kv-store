@@ -238,22 +238,31 @@ function startTypewriter() {
     let element = document.getElementById('typewriter');
 
     let typewriter = new Typewriter(element, {
+        strings: [
+            'Your own FREE online key-value storage API',
+            'Easy to access',
+            'Free (As in "FREE beer")',
+            'Guided deployment'
+        ],
+        autoStart: true,
+        pauseFor: 2500,
+        deleteSpeed: 15,
         loop: true
     });
 
-    typewriter.typeString('Your own FREE online key-value storage API')
-        .pauseFor(2500)
-        .deleteAll()
-        .typeString('Easy to access')
-        .pauseFor(2500)
-        .deleteAll()
-        .typeString('Free (As in FREE BEER)')
-        .pauseFor(2500)
-        .deleteAll()
-        .typeString('Guided deployment')
-        .pauseFor(2500)
-        .deleteAll()
-        .start();
+    // typewriter.typeString('Your own FREE online key-value storage API')
+    //     .pauseFor(2500)
+    //     .deleteAll()
+    //     .typeString('Easy to access')
+    //     .pauseFor(2500)
+    //     .deleteAll()
+    //     .typeString('Free (As in FREE BEER)')
+    //     .pauseFor(2500)
+    //     .deleteAll()
+    //     .typeString('Guided deployment')
+    //     .pauseFor(2500)
+    //     .deleteAll()
+    //     .start();
 }
 // typewriter end
 
